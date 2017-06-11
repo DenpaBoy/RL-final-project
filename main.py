@@ -1,5 +1,7 @@
+import Environment
+
 time_step = 5
-RL_environment = HomeWorld()
+RL_environment = Environment.HomeWorld()
 
 print ('The game is now started')
 RL_environment.new_game()
