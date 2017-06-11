@@ -17,7 +17,7 @@ class Agent:
         self.w = tf.placeholder(tf.float32, [None, self.max_length*self.num_sentence , self.vec_dim])
         with tf.variable_scope("Representation_Generator"):
             x_s, _ = tf.contrib.rnn.static_rnn(tf.contrib.rnn.BasicLSTMCell(self.vec_dim), tf.unstack(self.w, self.max_length*self.num_sentence, 1), dtype=tf.float32)
-            v_s = tf.divide(tf.add_n(x_s),self.max_length)
+            v_s = tf.divide(tf.add_n(x_s),self.max_length*self.num_sentence)
         with tf.variable_scope("action_scorer"):
             with tf.variable_scope("Linear1"):
                 W1 = tf.get_variable("Weight",shape = [self.vec_dim, self.hidden_node1],initializer = initializer)
