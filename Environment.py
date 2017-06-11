@@ -11,34 +11,42 @@ import sys
 
 description = {}
 agent_location = None
-agent_quest = []
-agent_action_outcome = []
-agent_mislead = []
-quest_checklist = []
-
+agent_quest = None
+agent_mislead = None
+quest_checklist = False
+quest_completed_count = 0
+#home_quest = you are hungry --> room = kitchen, action = eat apple
+#home_quest = you are sleepy --> room = bedroom, action = sleep bed
+#home_quest = you are bored --> room = livingroom, action = watch tv
+#home_quest = you are getting fat --> room = garden, action = exercise body
+#home_quest = you are dirty --> room = toilet, action = wash face
 
 class HomeWorld():
-    def __init__(self, num_rooms=4, seq_length=20, max_step=5):
+    def __init__(self, num_home_rooms=5, seq_length=20, max_step=5):
         self.regions = ["home", "school"]
         self.home_rooms = ["livingroom", "garden", "kitchen", "bedroom", "toilet"]
         self.school_rooms = ["physics_classroom", "math_classroom", "music_classroom", "canteen", "field", "library"]
-        self.actions = ["eat", "sleep", "watch", "exercise", "go", "study", "bath", "borrow", "attend"]
-        self.objects = ["north", "south", "east", "west", "apple", "book", "alone", "book", "class", "body"]
-        self.quests = ["You are hungry", "You are sleepy", "You are bored", "You are getting fat",
-                       "You are dirty", "You are going to school", "You are going to home",
+        self.home_actions = ["eat", "sleep", "watch", "exercise","wash","go"]
+        self.school_actions =  ["study", "bath", "borrow", "attend"]
+        self.objects = ["north", "south", "east", "west", "apple", "bed", "body","face","tv"]
+        self.home_quests = ["you are hungry", "you are sleepy", "you are bored", "you are getting fat", "you are dirty"]
+        self.school_quests = ["You are going to school", "You are going to home",
                        "You are going to borrow books",
                        "You are going to attend math class", "You are going to attend physics class",
                        "You are going to attend music class"]
-        self.quests_mislead = ["You are not hungry", "You are not sleepy", "You are not bored",
-                               "You are not getting fat",
-                               "You are not dirty", "You are not going to school", "You are not going to home",
+        self.home_quests_mislead = ["you are not hungry", "you are not sleepy", "you are not bored","you are not getting fat",
+                               "you are not dirty"]
+        self.school_quests_mislead = ["You are not going to school", "You are not going to home",
                                "You are not going to borrow books",
                                "You are not going to attend music class"]
         self.idx2word = ["not", "but", "now"]
-        self.x = 'sdfjlsd'
 
     def get_random_location(self):
         return random.choice(self.home_rooms)
+    def get_random_quest(self):
+        return random.choice(self.home_quests)
+    def get_home_quests_mislead(self):
+        return random.choice(self.home_quests_mislead)
 
     def read_file(self):
         fp = open("description.txt")
@@ -57,82 +65,139 @@ class HomeWorld():
             description[room] = temp
 
     def new_game(self):
+        self.first_quest = self.get_random_quest()
         self.read_file()
-        # self.test()
-        print ('Welcome to our Home World!!')
         self.first_location = self.get_random_location()
-        print (description[self.first_location])
 
+        print ('The game is now started')
+        print ('Welcome to our Home World!!')
+        print (description[self.first_location])
+        print ('here is your quest: '+self.first_quest)
+
+        return self.first_quest,self.first_location
+
+
+def display (action_list):
+    global agent_location
+    global agent_quest
+    global agent_mislead
+
+    agent_mislead = RL_environment.get_home_quests_mislead()
+    print ('your current quest is ' + agent_quest + '.' + ' you are currently in ' + agent_location + '.' + ' you just did ' + action_list[0] + " " + action_list[1] + '. ' + agent_mislead + '.' )
 
 def check_location(action_list):
     global agent_location
+    global agent_quest
+    global total_reward
+    global quest_checklist
+
     room = agent_location
-    print ('action_list:', action_list)
-    print ('room:', room)
+    #print ('action_list:', action_list)
+    #print ('room:', room)
     if room == 'livingroom':
-        print ('1')
+        #print ('1')
         if action_list[0] == 'go' and action_list[1] == 'east':
             agent_location = 'garden'
+            total_reward = total_reward + reward_step_quest_not_complete
+            quest_checklist = False
         elif action_list[0] == 'go' and action_list[1] == 'south':
             agent_location = 'bedroom'
+            total_reward = total_reward + reward_step_quest_not_complete
+            quest_checklist  = False
+        elif agent_quest == RL_environment.home_quests[2] and action_list[0] == 'watch' and action_list[1] == 'tv':
+            total_reward = total_reward + reward_quest_complete
+            quest_checklist = True
         else:
+            total_reward = total_reward + reward_step_quest_not_complete
             agent_location = room
+            quest_checklist = False
     if room == 'garden':
-        print ('2')
+        #print ('2')
         if action_list[0] == 'go' and action_list[1] == 'west':
             agent_location = 'livingroom'
+            total_reward = total_reward + reward_step_quest_not_complete
         elif action_list[0] == 'go' and action_list[1] == 'east':
             agent_location = 'kitchen'
+            total_reward = total_reward + reward_step_quest_not_complete
         elif action_list[0] == 'go' and action_list[1] == 'south':
             agent_location = 'toilet'
+            total_reward = total_reward + reward_step_quest_not_complete
+        elif agent_quest == RL_environment.home_quests[3] and action_list[0] == 'exercise' and action_list[1] == 'body':
+            total_reward = total_reward + reward_quest_complete
+            quest_checklist = True
         else:
+            total_reward = total_reward + reward_step_quest_not_complete
             agent_location = room
+            quest_checklist = False
     if room == 'kitchen':
-        print ('3')
+        #print ('3')
         if action_list[0] == 'go' and action_list[1] == 'west':
             agent_location = 'garden'
+            total_reward = total_reward + reward_step_quest_not_complete
+        elif agent_quest == RL_environment.home_quests[0] and action_list[0] == 'eat' and action_list[1] == 'apple':
+            total_reward = total_reward + reward_quest_complete
+            quest_checklist = True
         else:
+            total_reward = total_reward + reward_step_quest_not_complete
             agent_location = room
+            quest_checklist = False
     if room == 'bedroom':
-        print ('4')
+        #print ('4')
         if action_list[0] == 'go' and action_list[1] == 'east':
             agent_location = 'toilet'
+            total_reward = total_reward + reward_step_quest_not_complete
         elif action_list[0] == 'go' and action_list[1] == 'north':
             agent_location = 'livingroom'
+            total_reward =  total_reward + reward_step_quest_not_complete
+        elif agent_quest == RL_environment.home_quests[1] and action_list[0] == 'sleep' and action_list[1] == 'bed':
+            total_reward = total_reward + reward_quest_complete
+            quest_checklist = True
         else:
+            total_reward = total_reward + reward_step_quest_not_complete
             agent_location = room
+            quest_checklist = False
+
     if room == 'toilet':
-        print ('5')
+        #print ('5')
         if action_list[0] == 'go' and action_list[1] == 'west':
             agent_location = 'bedroom'
+            total_reward = total_reward + reward_step_quest_not_complete
         elif action_list[0] == 'go' and action_list[1] == 'north':
             agent_location = 'garden'
+            total_reward = total_reward + reward_step_quest_not_complete
+        elif agent_quest == RL_environment.home_quests[4] and action_list[0] == 'wash' and action_list[1] == 'face':
+            total_reward = total_reward + reward_quest_complete
+            quest_checklist = True
         else:
+            total_reward = total_reward + reward_step_quest_not_complete
             agent_location = room
-
-    print ('agent location inside check: ',agent_location)
-
+            quest_checklist = False
+    display(action_list)
 
 def handle_action(action):
     action_list = action.split()
     if len(action_list) == 2:
         check_location(action_list)
+
     else:
         print ('try to input two words action command')
 
+time_step = 100
+reward_step_quest_not_complete = -0.01
+reward_quest_complete = 3
+total_reward = 0
 
-time_step = 5
 RL_environment = HomeWorld()
 
-print ('The game is now started')
-RL_environment.new_game()
 for i in range(time_step):
-    if i == 0:
-        agent_location = RL_environment.first_location
-    else:
-        pass
-    input_command = input('What do you want to do? : ')
-    print ('agent_location inside for loop: ', agent_location)
+    if i == 0 and quest_checklist == False:
+        agent_quest, agent_location = RL_environment.new_game()
+
+    if quest_checklist == True and i != 0:
+        quest_completed_count = quest_completed_count + 1
+        agent_quest = RL_environment.get_random_quest()
+        agent_quest, agent_location = RL_environment.new_game()
+
+    input_command = raw_input('What do you want to do? : ')
     handle_action(input_command)
 
-    # print input_command
