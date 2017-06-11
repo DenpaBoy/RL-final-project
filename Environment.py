@@ -181,7 +181,7 @@ def handle_action(action):
 
     else:
         print ('try to input two words action command')
-
+"""
 time_step = 100
 reward_step_quest_not_complete = -0.01
 reward_quest_complete = 3
@@ -200,4 +200,4 @@ for i in range(time_step):
 
     input_command = raw_input('What do you want to do? : ')
     handle_action(input_command)
-
+"""
