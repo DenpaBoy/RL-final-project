@@ -8,14 +8,15 @@ class Agent:
         self.max_length = One_hot_encoding.max_length
         self.hidden_node1 = 200
         self.hidden_node2 = 200
+        self.num_sentence = 4
         self.world = world
         self.action_num = len(self.world.actions) 
         self.object_num = len(self.world.objects) 
         initializer = tf.contrib.layers.xavier_initializer()
         #input
-        self.w = tf.placeholder(tf.float32, [None, self.max_length , self.vec_dim])
+        self.w = tf.placeholder(tf.float32, [None, self.max_length*self.num_sentence , self.vec_dim])
         with tf.variable_scope("Representation_Generator"):
-            x_s, _ = tf.contrib.rnn.static_rnn(tf.contrib.rnn.BasicLSTMCell(self.vec_dim), tf.unstack(self.w, self.max_length, 1), dtype=tf.float32)
+            x_s, _ = tf.contrib.rnn.static_rnn(tf.contrib.rnn.BasicLSTMCell(self.vec_dim), tf.unstack(self.w, self.max_length*self.num_sentence, 1), dtype=tf.float32)
             v_s = tf.divide(tf.add_n(x_s),self.max_length)
         with tf.variable_scope("action_scorer"):
             with tf.variable_scope("Linear1"):
