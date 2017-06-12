@@ -5,6 +5,7 @@ import time
 import string
 import random
 import sys
+import SPEC
 
 # description : quest. location. previous action. mislead (not including quest)
 # 4 sentences / 20 words
