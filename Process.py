@@ -4,7 +4,7 @@ import SPEC
 # Spilt string to list
 def seqs_str_to_lists(seqs_str):
 
-    quest_str,location_str,pre_action_str,action_result_str,reward_str = seqs_str.split('.')
+    quest_str,location_str,pre_action_str,action_result_str,reward_str = seqs_str.split(';')
 
     quest = quest_str.split(' ')
     location = location_str.split(' ')
@@ -20,10 +20,19 @@ def seqs_str_to_lists(seqs_str):
 global seq_num
 global seq_len
 global vec_dim
+global Qa_dim
+global Qo_dim
+global all_actions
+global objects
+
 
 seq_num = SPEC.seq_num
 seq_len = SPEC.seq_len
 vec_dim = SPEC.vec_dim
+Qa_dim = SPEC.Qa_dim
+Qo_dim = SPEC.Qo_dim
+all_actions = SPEC.all_actions
+objects = SPEC.objects
 
 vocabulary = SPEC.vocabulary
 
@@ -37,8 +46,8 @@ id_list = list(range(1,vocabulary+1))   # 0: <SOS> , end: <EOS>
 global table
 table = dict(zip(all_words,id_list)) 
 
-# Sequence to tensor
-def seq_tensor_encoder(seqs_str):
+# String sequences to tensor
+def seqs_tensor_encoder(seqs_str):
 
     seq_tensor = np.zeros([seq_num-1,seq_len,vec_dim])
 
@@ -52,7 +61,7 @@ def seq_tensor_encoder(seqs_str):
     # temp[0,table[word]] = 1     
 
     for w in range(1,1+len(quest)):
-        
+       
         seq_tensor[0,w,table[quest[w-1]]] = 1.
         
     for w in range(1,1+len(location)):
@@ -65,6 +74,10 @@ def seq_tensor_encoder(seqs_str):
         seq_tensor[3,w,table[action_result[w-1]]] = 1.
 
     return seq_tensor,reward
+
+
+def act_obj_str_decoder(act,obj):
+    return all_actions[act],objects[obj]
 
 '''
 test_str = 'You are hungry.You are in the kitchen.You eat apple.You are hungry.Reward=5'
