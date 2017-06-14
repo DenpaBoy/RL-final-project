@@ -25,7 +25,7 @@ actions = SPEC.home_actions
 lstm_hidden_width = vec_dim
 hidden_width1 = 25
 hidden_width2 = 20
-mem_max_len = 500
+mem_max_len = 2000
 p_rep_mem = collections.deque()
 r_rep_mem = collections.deque()
 
