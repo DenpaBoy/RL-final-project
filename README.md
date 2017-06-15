@@ -8,6 +8,8 @@ https://arxiv.org/abs/1506.08941
 
 Room position:  
 
+![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Home%20world.png)
+
 [LivingRoom] —-> [Garden] —-> [Kitchen]  
     |                |  
     |		         |  
