@@ -5,9 +5,9 @@ This is the student-led project for the deep learning lecture.
 Language Understanding for Text-based Games using Deep Reinforcement Learning  
 https://arxiv.org/abs/1506.08941
 
-For single quest, success rate of our model is 100% with 200 epsisodes !
+For single quest testing phase , success rate of our model is 100% with 200 epsisodes !
 
-Demo ( 100% success rate ):
+Demo ( 100% success rate , only argmax Q(s,a) , not epsilon-greedy ):
 
 ![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest-01.png)
 
