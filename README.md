@@ -7,10 +7,13 @@ https://arxiv.org/abs/1506.08941
 
 For single quest, success rate of our model is 100% with 200 epsisodes !
 
+Demo ( 100% success rate ):
+
+![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest-01.png)
+
 Room position:  
 
 ![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Home%20world.png)
-
 
 Quest 01 episodes reward sum:
 
