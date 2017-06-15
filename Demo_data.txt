@@ -1,0 +1,100 @@
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the kitchen. You go west. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the kitchen. You go west. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the bathroom. You go north. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the kitchen. You go west. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the kitchen. You go west. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the bathroom. You go north. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the kitchen. You go west. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the bedroom. You go north. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the bedroom. You go north. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the bedroom. You go north. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the kitchen. You go west. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the bedroom. You go north. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the bathroom. You go north. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the kitchen. You go west. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the bedroom. You go north. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the bedroom. You go north. 
+You are bored. You are in the garden. You go west. 
+You are bored. You are in the living_room. You watch TV. 
+Success !!. 
+You are bored. You are in the kitchen. You go west. 
