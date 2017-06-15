@@ -11,8 +11,16 @@ Room position:
 ![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Home%20world.png)
 
 
-Episode reward sum:
+Quest 01 episodes reward sum:
 ![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest_01_reward_sum.png)
+
+Quest 02 episodes reward sum:
 ![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest_02_reward_sum.png)
+
+Quest 03 episodes reward sum:
 ![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest_03_reward_sum.png)
+
+Quest 04 episodes reward sum:
 ![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest_04_reward_sum.png)
+
+
