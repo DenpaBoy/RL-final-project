@@ -6,10 +6,10 @@ Language Understanding for Text-based Games using Deep Reinforcement Learning
 https://arxiv.org/abs/1506.08941
 
 
-Room position:
+Room position:  
 
-[LivingRoom] —-> [Garden] —-> [Kitchen]
-    |                |
-    |		             |
-    V		             V
+[LivingRoom] —-> [Garden] —-> [Kitchen]  
+    |                |  
+    |		         |  
+    V		         V  
 [Bedroom]    —-> [Toilet]
