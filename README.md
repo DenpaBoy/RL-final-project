@@ -12,4 +12,7 @@ Room position:
 
 
 Episode reward sum:
-![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Agent%20reward%20sum.png)
+![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest_01_reward_sum.png)
+![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest_02_reward_sum.png)
+![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest_03_reward_sum.png)
+![alt text](https://github.com/DenpaBoy/RL-final-project/blob/Stable-success-v1/images/Quest_04_reward_sum.png)
