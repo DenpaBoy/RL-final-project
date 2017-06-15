@@ -56,9 +56,9 @@ class HomeWorld():
               self.current_location = "You are in the garden" 
 
         if self.current_location == "You are in the bedroom":
-           if self.agent_action == 'go' and self.agent_object == 'north':
+           if self.agent_action == 'go north':
               self.current_location = "You are in the garden"
-           if self.agent_action == 'go' and self.agent_object == 'east':
+           if self.agent_action == 'go east':
               self.current_location = "You are in the bathroom"
 
         if self.current_location == "You are in the bathroom":
