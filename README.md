@@ -1,7 +1,7 @@
 # Reinforcement Learning - final project
 
 Language Understanding for Text-based Games using Deep Reinforcement Learning  
-https://arxiv.org/abs/1506.08941
+https://arxiv.org/pdf/1506.08941.pdf
 
 For single quest testing phase , success rate of our model is 100% with 200 epsisodes !
 
